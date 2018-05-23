@@ -33,9 +33,8 @@ export default class Profile extends Component {
   }
   changeProfilePic(e) {
     e.preventDefault();
-    e.currentTarget.parentNode.querySelector(
-      "img"
-    ).src = this.refs.profilePic.value || 'img/dui.png';
+    e.currentTarget.parentNode.querySelector("img").src =
+      this.refs.profilePic.value || "img/dui.png";
   }
   changeName(e) {
     e.preventDefault();
@@ -53,7 +52,13 @@ export default class Profile extends Component {
         <p className="title">Profile</p>
         <div className="info">
           <div className="img">
-            <img src={this.state.info.profilepic || 'img/dui.png'} alt={this.state.info.name} onError={(e)=>{e.target.src="img/dui.png"}} />
+            <img
+              src={this.state.info.profilepic || "img/dui.png"}
+              alt={this.state.info.name}
+              onError={e => {
+                e.target.src = "img/dui.png";
+              }}
+            />
             <form onSubmit={this.changeProfilePic.bind(this)}>
               <input
                 ref="profilePic"
@@ -69,9 +74,13 @@ export default class Profile extends Component {
               <input
                 ref="name"
                 type="text"
-                placeholder={this.state.info.name ||"Name..."}
+                placeholder={this.state.info.name || "Name..."}
               />
-              <input type="text" disabled placeholder={this.state.info.username}/>
+              <input
+                type="text"
+                disabled
+                placeholder={this.state.info.username}
+              />
               <input type="submit" value="Save" />
             </form>
           </div>
