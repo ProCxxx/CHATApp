@@ -9,7 +9,7 @@ export default class NavbarItem extends Component {
   render() {
     return (
       <div
-        style={{cursor: "pointer"}}
+        style={{ cursor: "pointer" }}
         className="navbarItem"
         onClick={this.changeActive.bind(this)}
       >

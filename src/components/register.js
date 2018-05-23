@@ -4,7 +4,11 @@ export default class Register extends Component {
   tryRegister(e) {
     e.preventDefault();
     var err = e.currentTarget.parentNode.querySelector(".error");
-    if (this.refs.name.value !== "" && this.refs.username.value !== "" && this.refs.password.value !== "") {
+    if (
+      this.refs.name.value !== "" &&
+      this.refs.username.value !== "" &&
+      this.refs.password.value !== ""
+    ) {
       if (this.refs.password.value === this.refs.password2.value) {
         var ajax = new XMLHttpRequest();
         ajax.onreadystatechange = () => {
@@ -28,16 +32,19 @@ export default class Register extends Component {
           }
         };
         ajax.open("POST", "http://localhost/CHATApp/register.php");
-        ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        ajax.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
         ajax.send(
           "username=" +
-          this.refs.username.value +
-          "&name=" +
-          this.refs.name.value +
-          "&password=" +
-          this.refs.password.value +
-          "&password2=" +
-          this.refs.password2.value
+            this.refs.username.value +
+            "&name=" +
+            this.refs.name.value +
+            "&password=" +
+            this.refs.password.value +
+            "&password2=" +
+            this.refs.password2.value
         );
       } else {
         this.setError(err, "Passwords doesn't match");
@@ -51,18 +58,18 @@ export default class Register extends Component {
     el.classList.add("set");
   }
   render() {
-        return (
-            <div className="register">
-                <p className="title">Register</p>
-                <form onSubmit={this.tryRegister.bind(this)}>
-                    <input ref="name" placeholder="Full name" type="text" />
-                    <input ref="username" placeholder="Username" type="text" />
-                    <input ref="password" placeholder="Password" type="password" />
-                    <input ref="password2" placeholder="And again" type="password" />
-                    <input ref="submit" value="Register" type="submit" />
-                </form>
-                <p className="error" />
-            </div>
-        );
-    }
+    return (
+      <div className="register">
+        <p className="title">Register</p>
+        <form onSubmit={this.tryRegister.bind(this)}>
+          <input ref="name" placeholder="Full name" type="text" />
+          <input ref="username" placeholder="Username" type="text" />
+          <input ref="password" placeholder="Password" type="password" />
+          <input ref="password2" placeholder="And again" type="password" />
+          <input ref="submit" value="Register" type="submit" />
+        </form>
+        <p className="error" />
+      </div>
+    );
+  }
 }
