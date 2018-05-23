@@ -24,14 +24,8 @@ export default class LogIn extends Component {
             } else if (response.status === "success") {
               localStorage.setItem("status", "in");
               localStorage.setItem("uuid", response.uuid);
-              var act;
-              if (response.profilePic !== "") {
-                act = "chat";
-              } else {
-                act = "profile";
-              }
               this.props.changeActive({
-                active: act,
+                active: "chat",
                 status: "in",
                 uuid: response.uuid
               });
