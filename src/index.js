@@ -25,15 +25,16 @@ if (lsin === "in" && localStorage.getItem("uuid") !== "") {
       } catch (e) {
         console.log(e);
       }
-      ReactDOM.render(
-        <App status={status} uuid={uuid} />,
-        document.getElementById("root")
-      );
+      render(status, uuid);
     }
   };
   ajax.open("POST", "http://localhost/CHATApp/checkcreds.php");
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   ajax.send("uuid=" + localStorage.getItem("uuid"));
+} else {
+  render("out", null);
 }
-
+function render(s, u) {
+  ReactDOM.render(<App status={s} uuid={u} />, document.getElementById("root"));
+}
 registerServiceWorker();

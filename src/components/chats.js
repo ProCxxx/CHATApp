@@ -22,7 +22,7 @@ export default class Chats extends Component {
           personClick={this.personClick.bind(this)}
           id={Math.floor(Math.random() * Date.now())}
           name={this.props.user.convs[i].name}
-          lastMsg={this.props.user.convs[i].lastMsg}
+          lastMsg={this.props.user.convs[i].lastMsg.toString().substr(0, 15)}
           profilePic={this.props.user.convs[i].profilePic}
           key={Math.floor(Math.random() * Date.now())}
         />
@@ -51,7 +51,7 @@ export default class Chats extends Component {
             personClick={this.personClick.bind(this)}
             id={Math.floor(Math.random() * Date.now())}
             name={svi[i].name}
-            lastMsg={svi[i].lastMsg}
+            lastMsg={svi[i].lastMsg.toString().substr(0, 20)}
             profilePic={svi[i].profilePic}
           />
         );

@@ -12,7 +12,7 @@ export default class App extends Component {
     this.state = {
       active: props.status === "out" ? "log in" : "profile",
       activeComponent: null, // <LogIn changeActive={this.changeActive.bind(this)}/>,
-      status: this.props.status,
+      status: props.status,
       uuid: props.uuid
     };
   }

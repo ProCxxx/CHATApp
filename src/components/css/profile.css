@@ -1,0 +1,123 @@
+.profile {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile .title {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    padding: 20px;
+    margin: 10px auto;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+
+.profile .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile .info .img {
+    flex: 1;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    order: 0;
+}
+
+.profile .info .img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    border: 5px solid black;
+    margin: 10px;
+}
+
+.profile .info .img input {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.profile .info .img input[type=text] {
+    flex: 1;
+    border-right: 1px solid black;
+}
+
+.profile .info .img input[type=submit]:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.profile .info .name {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    order: 2;
+}
+
+.profile .info .name form {
+    flex: 1;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .info .name input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10%;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.profile .info .name input[type=submit]:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.profile .info .password {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+.profile .info .password form {
+    flex: 1;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .info .password input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10%;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.profile .info .password input[type=submit]:hover {
+    background-color: #000;
+    color: #fff;
+}
