@@ -24,6 +24,7 @@ if (lsin === "in" && localStorage.getItem("uuid") !== "") {
         }
       } catch (e) {
         console.log(e);
+        console.log(ajax.response);
       }
       render(status, uuid);
     }

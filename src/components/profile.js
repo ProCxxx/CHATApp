@@ -47,7 +47,6 @@ export default class Profile extends Component {
         if (ajax.readyState === 4) {
           try {
             var response = JSON.parse(ajax.response);
-            console.log(response);
             if (response.status === "success") {
               this.setState({ img: { status: "success", value: target.src } });
             } else {
@@ -55,6 +54,7 @@ export default class Profile extends Component {
             }
           } catch (e) {
             console.log(e);
+            console.log(ajax.response);
           }
         }
       };
@@ -83,15 +83,16 @@ export default class Profile extends Component {
     if (
       this.refs.name.value !== "" &&
       this.refs.name.value !== this.state.info.name &&
-      this.refs.name.value.match(/[a-zA-Z\ ]+/g)[0] === this.refs.name.value
+      this.refs.name.value.match(/[a-zA-Z\ ]+/g)[0] === this.refs.name.value &&
+      this.refs.name.value.match(/[\ ]+/g) != this.refs.name.value
     ) {
       var n = this.refs.name.value
         .split(" ")
         .filter(x => x !== "")
         .reverse();
-      var val = "";
-      while (n) {
-        val += n.pop();
+      var val = n.pop();
+      while (n.length !== 0) {
+        val += " " + n.pop();
       }
 
       var ajax = new XMLHttpRequest();
@@ -102,9 +103,11 @@ export default class Profile extends Component {
             if (response.status === "success") {
               this.setState({
                 info: Object.assign(this.state.info, {
-                  name: this.refs.name.value
+                  name: val
                 })
               });
+              this.refs.name.placeholder = val;
+              this.refs.name.value = "";
               this.refs.name.style.backgroundColor = "rgba(200,255,200,0.5)";
               setTimeout(() => {
                 this.refs.name.style.backgroundColor = "transparent";
@@ -117,6 +120,7 @@ export default class Profile extends Component {
             }
           } catch (e) {
             console.log(e);
+            console.log(ajax.response);
           }
         }
       };
@@ -125,25 +129,77 @@ export default class Profile extends Component {
         "Content-type",
         "application/x-www-form-urlencoded"
       );
-      ajax.send(
-        "uuid=" + this.state.uuid + "&action=name&val=" + this.refs.name.value
-      );
+      ajax.send("uuid=" + this.state.uuid + "&action=name&val=" + val);
     } else {
       this.refs.name.style.backgroundColor = "rgba(255,200,200,0.5)";
       setTimeout(() => {
         this.refs.name.style.backgroundColor = "transparent";
       }, 1000);
-      console.log(
-        this.refs.name.value !== "",
-        this.refs.name.value !== this.state.info.name,
-        this.refs.name.value.match(/[a-zA-Z\ ]+/g)[0] === this.refs.name.value,
-        this.refs.name.value.match(/[a-zA-Z\ ]+/g)[0],
-        this.refs.name.value
-      );
     }
   }
   changePW(e) {
     e.preventDefault();
+    var pw0 = this.refs.pw0.value;
+    var pw1 = this.refs.pw1.value;
+    var pw2 = this.refs.pw2.value;
+    if (pw0 === "") {
+      this.refs.pw0.style.backgroundColor = "rgba(255,200,200,0.5)";
+      return;
+    } else {
+      this.refs.pw0.style.backgroundColor = "rgba(200,255,200,0.5)";
+    }
+    if (pw1 === "") {
+      this.refs.pw1.style.backgroundColor = "rgba(255,200,200,0.5)";
+      return;
+    }
+    if (pw2 === "") {
+      this.refs.pw2.style.backgroundColor = "rgba(255,200,200,0.5)";
+      return;
+    }
+    if (pw1 === pw2) {
+      this.refs.pw1.style.backgroundColor = "rgba(200,255,200,0.5)";
+      this.refs.pw2.style.backgroundColor = "rgba(200,255,200,0.5)";
+    } else {
+      this.refs.pw1.style.backgroundColor = "rgba(255,200,200,0.5)";
+      this.refs.pw2.style.backgroundColor = "rgba(255,200,200,0.5)";
+    }
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = () => {
+      if (ajax.readyState === 4) {
+        try {
+          var response = JSON.parse(ajax.responseText);
+          if (response.status === "success") {
+            this.refs.pw0.style.backgroundColor = "rgba(200,255,200,0.5)";
+            this.refs.pw1.style.backgroundColor = "rgba(200,255,200,0.5)";
+            this.refs.pw2.style.backgroundColor = "rgba(200,255,200,0.5)";
+            this.refs.pw0.value = "";
+            this.refs.pw1.value = "";
+            this.refs.pw2.value = "";
+            setTimeout(() => {
+              this.refs.pw0.style.backgroundColor = "transparent";
+              this.refs.pw1.style.backgroundColor = "transparent";
+              this.refs.pw2.style.backgroundColor = "transparent";
+            }, 1000);
+          } else if (response.status === "error") {
+            this.refs.pw0.style.backgroundColor = "rgba(255,200,200,0.5)";
+          }
+        } catch (e) {
+          console.log(e);
+          console.log(ajax.response);
+        }
+      }
+    };
+    ajax.open("POST", "http://localhost/CHATApp/setinfo.php");
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ajax.send(
+      "uuid=" +
+        this.state.uuid +
+        "&action=password" +
+        "&val=" +
+        this.refs.pw0.value +
+        "&pw1=" +
+        this.refs.pw2.value
+    );
   }
   componentDidMount = e => {
     this.getInfo();
