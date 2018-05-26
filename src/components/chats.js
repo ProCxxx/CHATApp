@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import Person from "./person";
 
 export default class Chats extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      uuid: props.user.uuid,
+      convs: props.convs,
+      user: { name: props.user.name, profilePic: props.user.profilepic }
+    };
     this.updatePeople = this.updatePeople.bind(this);
   }
 
   updatePeople(obj) {
     var svi;
     if (obj === undefined) {
-      svi = this.props.user.convs;
+      svi = this.state.convs;
     } else {
       svi = obj;
     }
@@ -20,10 +24,10 @@ export default class Chats extends Component {
       var item = (
         <Person
           personClick={this.personClick.bind(this)}
-          id={Math.floor(Math.random() * Date.now())}
-          name={this.props.user.convs[i].name}
-          lastMsg={this.props.user.convs[i].lastMsg.toString().substr(0, 15)}
-          profilePic={this.props.user.convs[i].profilePic}
+          id={svi[i].convID}
+          name={svi[i].name}
+          lastMsg={svi[i].lastmsg.toString().substr(0, 15)}
+          profilePic={svi[i].profilepic}
           key={Math.floor(Math.random() * Date.now())}
         />
       );
@@ -32,7 +36,7 @@ export default class Chats extends Component {
     this.setState({ persons: ljudi });
   }
   trigerSearch(e) {
-    var svi = this.props.user.convs;
+    var svi = this.state.convs;
     if (e.target.value === "") {
       this.updatePeople();
       return;
@@ -49,29 +53,31 @@ export default class Chats extends Component {
         ljudi.push(
           <Person
             personClick={this.personClick.bind(this)}
-            id={Math.floor(Math.random() * Date.now())}
+            id={svi[i].convID}
             name={svi[i].name}
-            lastMsg={svi[i].lastMsg.toString().substr(0, 20)}
-            profilePic={svi[i].profilePic}
+            lastMsg={svi[i].lastmsg.toString().substr(0, 20)}
+            profilePic={svi[i].profilepic}
           />
         );
       }
     }
     this.setState({ persons: ljudi });
   }
-  personClick(id) {}
-  componentWillReceiveProps() {
-    this.updatePeople();
+  personClick(id) {
+    this.props.changeActiveChat(id);
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ convs: nextProps.convs, user: nextProps.user });
+    this.updatePeople(nextProps.convs);
   }
   componentDidMount = () => {
     this.updatePeople();
   };
-
   render() {
     return (
       <div className="chats">
         <div className="title">
-          <img src={this.props.user.profileImg} alt="profilePic" />
+          <img src={this.state.user.profilepic} alt={this.state.user.name} />
           <p className="name">{this.props.user.name}</p>
         </div>
         <div className="search">

@@ -1,58 +1,58 @@
 .login {
-    width: 100%;
-    flex: 1;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  flex: 1;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .login .title {
-    font-size: 32px;
-    margin: -50px auto 25px;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0 0 5px #000;
+  font-size: 32px;
+  margin: -50px auto 25px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
 }
 
 .login form {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    min-width: 500px;
-    /* width: 50%; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  /* width: 50%; */
 }
 
 .login form input {
-    padding: 10px;
-    margin: 2px;
-    border: none;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
-    font-size: 20px;
-    text-align: center;
+  padding: 10px;
+  margin: 2px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
 }
 
-.login form input[type=submit] {
-    border-top: none;
-    margin: 10px 0 0 0;
-    text-transform: uppercase;
+.login form input[type="submit"] {
+  border-top: none;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
 }
 
-.login form input[type=submit]:hover {
-    background-color: #000;
-    color: #fff;
+.login form input[type="submit"]:hover {
+  background-color: #000;
+  color: #fff;
 }
-.login .error{
-    margin: 50px auto 0 auto;
+.login .error {
+  margin: 50px auto 0 auto;
 }
-.login .error.set{
-    margin: 50px auto 0 auto;
-    font-size: 24px;
-    color: white;
-    background-color: #f00;
-    padding: 10px;
-    min-width: 500px;
-    text-align: center;
-    text-transform: uppercase;
+.login .error.set {
+  margin: 50px auto 0 auto;
+  font-size: 24px;
+  color: white;
+  background-color: #f00;
+  padding: 10px;
+  min-width: 500px;
+  text-align: center;
+  text-transform: uppercase;
 }

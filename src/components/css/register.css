@@ -1,60 +1,60 @@
 .register {
-    width: 100%;
-    flex: 1;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  flex: 1;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .register .title {
-    font-size: 32px;
-    margin: -50px auto 25px;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0 0 5px #000;
+  font-size: 32px;
+  margin: -50px auto 25px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
 }
 
 .register form {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    min-width: 500px;
-    /* width: 50%; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  /* width: 50%; */
 }
 
 .register form input {
-    padding: 10px;
-    margin: 2px;
-    border: none;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
-    font-size: 20px;
-    text-align: center;
+  padding: 10px;
+  margin: 2px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
 }
 
-.register form input[type=submit] {
-    border-top: none;
-    margin: 10px 0 0 0;
-    text-transform: uppercase;
+.register form input[type="submit"] {
+  border-top: none;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
 }
 
-.register form input[type=submit]:hover {
-    background-color: #000;
-    color: #fff;
+.register form input[type="submit"]:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .register .error {
-    margin: 50px auto 0 auto;
+  margin: 50px auto 0 auto;
 }
 
 .register .error.set {
-    margin: 50px auto 0 auto;
-    font-size: 24px;
-    color: white;
-    background-color: #f00;
-    padding: 10px;
-    min-width: 500px;
-    text-align: center;
-    text-transform: uppercase;
+  margin: 50px auto 0 auto;
+  font-size: 24px;
+  color: white;
+  background-color: #f00;
+  padding: 10px;
+  min-width: 500px;
+  text-align: center;
+  text-transform: uppercase;
 }

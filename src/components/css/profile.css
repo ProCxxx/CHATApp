@@ -1,177 +1,177 @@
 .profile {
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile .title {
-    width: 100%;
-    text-align: center;
-    font-size: 32px;
-    padding: 20px;
-    margin: 10px auto;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0 0 5px #000;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+  margin: 10px auto;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
 }
 
 .profile .info {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .profile .info .img {
-    /* flex: 1; */
-    width: 40%;
-    margin: 20px 5%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
+  /* flex: 1; */
+  width: 40%;
+  margin: 20px 5%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
 }
-.profile .info .img form{
-    width: 80%;
-    margin: auto;
-    display: flex;
+.profile .info .img form {
+  width: 80%;
+  margin: auto;
+  display: flex;
 }
 
 .profile .info .img img {
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    border: 5px solid white;
-    margin: 10px 10px 5% 10px;
-    box-shadow: 0 0 50px #000;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  border: 5px solid white;
+  margin: 10px 10px 5% 10px;
+  box-shadow: 0 0 50px #000;
 }
 
 .profile .info .img input {
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
-    font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  font-size: 18px;
 }
 
-.profile .info .img input[type=text] {
-    flex: 1;
-    text-align: center;
-    border-right: 1px solid black;
+.profile .info .img input[type="text"] {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid black;
 }
 
-.profile .info .img input[type=submit]:hover {
-    background-color: #000;
-    color: #fff;
+.profile .info .img input[type="submit"]:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .profile .info .name {
-    /* flex: 1; */
-    width: 40%;
-    margin: 20px 5%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  /* flex: 1; */
+  width: 40%;
+  margin: 20px 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile .info .name form {
-    flex: 1;
-    width: 80%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
+  flex: 1;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
 }
 
 .profile .info .name input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    margin-top: 10%;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
-    font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-top: 10%;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  font-size: 18px;
 }
 
-.profile .info .name input[type=submit]:hover {
-    background-color: #000;
-    color: #fff;
+.profile .info .name input[type="submit"]:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .profile .info .password {
-    /* flex: 1; */
-    width: 40%;
-    margin: 20px 5%;
-    display: flex;
-    flex-direction: column;
+  /* flex: 1; */
+  width: 40%;
+  margin: 20px 5%;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile .info .password form {
-    flex: 1;
-    width: 80%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
+  flex: 1;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
 }
 
 .profile .info .password input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    margin-top: 10%;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
-    font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-top: 10%;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  font-size: 18px;
 }
 
-.profile .info .password input[type=submit]:hover {
-    background-color: #000;
-    color: #fff;
+.profile .info .password input[type="submit"]:hover {
+  background-color: #000;
+  color: #fff;
 }
 
-.profile .info .description{
-    width: 40%;
-    margin: 20px 5%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+.profile .info .description {
+  width: 40%;
+  margin: 20px 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile .info .description form {
-   flex: 1;
-   width: 80%;
-   display: flex;
-   justify-content: flex-end;
-   flex-direction: column;
-   align-items: center;
-   margin: auto;
+  flex: 1;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
 }
 
-.profile .info .description textarea{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid black;
-    flex: 1;  
-    margin-top: 15%;  
-    font-size: 18px;
+.profile .info .description textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  flex: 1;
+  margin-top: 15%;
+  font-size: 18px;
 }
-.profile .info .description input{
-    width: 100%;
-    padding: 10px;
-    border: none;
-    margin-top: 10%;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
-    font-size: 18px;
+.profile .info .description input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-top: 10%;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+  font-size: 18px;
 }
-.profile .info .description input:hover{
-    background-color: #000;
-    color: #fff;
+.profile .info .description input:hover {
+  background-color: #000;
+  color: #fff;
 }
