@@ -19,11 +19,18 @@ export default class Profile extends Component {
           var response = JSON.parse(ajax.response);
           if (response.status === "success") {
             this.refs.profilePic.value = response.profilepic;
+            this.refs.profilePic.parentNode.parentNode.querySelector(
+              "img"
+            ).src =
+              response.profilePic;
+            this.refs.description.value = response.description;
             this.setState({ info: response });
-          } else {
+          } else if (response.status === "error") {
             throw ReferenceError;
           }
         } catch (e) {
+          console.log(e);
+          console.log(ajax.response);
           this.setState({ info: { status: "error", code: 1 } });
         }
       }
@@ -201,7 +208,38 @@ export default class Profile extends Component {
         this.refs.pw2.value
     );
   }
-  componentDidMount = e => {
+
+  changeDesc(e) {
+    e.preventDefault();
+    var val = this.refs.description.value;
+    if (val !== "") {
+      var ajax = new XMLHttpRequest();
+      ajax.onreadystatechange = () => {
+        if (ajax.readyState === 4) {
+          try {
+            var response = JSON.parse(ajax.responseText);
+            if (response.status === "success") {
+              this.setState({
+                info: Object.assign(this.state.info, { description: val })
+              });
+              alert("Updated");
+            }
+          } catch (e) {
+            console.log(e);
+            console.log(ajax.response);
+          }
+        }
+      };
+      ajax.open("POST", "http://localhost/CHATApp/setinfo.php");
+      ajax.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      ajax.send("uuid=" + this.state.uuid + "&action=description&val=" + val);
+    }
+  }
+
+  componentDidMount = () => {
     this.getInfo();
   };
 
@@ -215,6 +253,7 @@ export default class Profile extends Component {
               src={this.state.info.profilepic || "img/dui.png"}
               alt={this.state.info.name}
               onError={e => {
+                console.log(e);
                 this.setState({
                   img: { status: "error", value: e.target.src }
                 });
@@ -252,6 +291,12 @@ export default class Profile extends Component {
               <input type="password" placeholder="Current password" ref="pw0" />
               <input type="password" placeholder="New one" ref="pw1" />
               <input type="password" placeholder="New again" ref="pw2" />
+              <input type="submit" value="Save" />
+            </form>
+          </div>
+          <div className="description">
+            <form onSubmit={this.changeDesc.bind(this)}>
+              <textarea ref="description" placeholder="Description" />
               <input type="submit" value="Save" />
             </form>
           </div>

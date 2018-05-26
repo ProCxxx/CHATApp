@@ -21,16 +21,22 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .profile .info .img {
-    flex: 1;
-    /* width: 100%; */
+    /* flex: 1; */
+    width: 40%;
+    margin: 20px 5%;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    order: 0;
+}
+.profile .info .img form{
+    width: 80%;
+    margin: auto;
+    display: flex;
 }
 
 .profile .info .img img {
@@ -52,6 +58,7 @@
 
 .profile .info .img input[type=text] {
     flex: 1;
+    text-align: center;
     border-right: 1px solid black;
 }
 
@@ -61,12 +68,13 @@
 }
 
 .profile .info .name {
-    flex: 1;
+    /* flex: 1; */
+    width: 40%;
+    margin: 20px 5%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    order: 2;
 }
 
 .profile .info .name form {
@@ -76,6 +84,7 @@
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
+    margin: auto;
 }
 
 .profile .info .name input {
@@ -94,10 +103,11 @@
 }
 
 .profile .info .password {
-    flex: 1;
+    /* flex: 1; */
+    width: 40%;
+    margin: 20px 5%;
     display: flex;
     flex-direction: column;
-    order: 1;
 }
 
 .profile .info .password form {
@@ -107,6 +117,7 @@
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
+    margin: auto;
 }
 
 .profile .info .password input {
@@ -120,6 +131,47 @@
 }
 
 .profile .info .password input[type=submit]:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.profile .info .description{
+    width: 40%;
+    margin: 20px 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .info .description form {
+   flex: 1;
+   width: 80%;
+   display: flex;
+   justify-content: flex-end;
+   flex-direction: column;
+   align-items: center;
+   margin: auto;
+}
+
+.profile .info .description textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    flex: 1;  
+    margin-top: 15%;  
+    font-size: 18px;
+}
+.profile .info .description input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10%;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+    font-size: 18px;
+}
+.profile .info .description input:hover{
     background-color: #000;
     color: #fff;
 }

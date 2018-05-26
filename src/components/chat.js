@@ -14,7 +14,11 @@ const Conversation = props => {
 export default class Chat extends Component {
   constructor(props) {
     super(props);
-    this.state = { uuid: props.uuid, user: { convs: [] } };
+    this.state = {
+      uuid: props.uuid,
+      user: {},
+      convs: []
+    };
   }
   sendMessage(val) {
     var cur = this.state.user;
